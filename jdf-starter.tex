@@ -19,19 +19,34 @@
 \end{abstract}
 
 \section{The Lord of the Rings Problem}
-All text in JDF should be set in the Palatino typeface. It is available practically everywhere as a system font: Google Docs offers a version called \emph{Palatino Linotype}. It comes in regular and bold weights with matching italics.
+Four entities must cross a river, under a number of constraints. 
 
 % For example in Figure \ref{fig:Palatino} on page \pageref{fig:Palatino}...
 
 \subsection{Semantic Network}
-Body text is set in the regular weight at 11 points with custom line spacing of 1.26, and 8.5 points of spacing added after each paragraph. It should be justified and paragraphs should not be indented. These styles can be automatically applied using the \emph{Normal} paragraph style.
+The semantic network in question must Lexically capture objects, relationships, and potentially link labels. Structurally, it must capture directional links, and Procedurally, must  show legal procedures. 
 
-\textbf{Bold} and \textit{italics} should be used for emphasis. Hyperlinks may be inserted in the text, as well as {\tt in-line code}, superscripts\textsuperscript{ like this}, and subscripts\textsubscript{ like this}.
+\begin{jdffigure}
+	\includegraphics[height=6cm]{Figures/semantic_network_1.png}%
+	\captionof{figure}{The blue part represents the river, the green parts represent either side of the river. The brown rhombus represents a two-person boat. And finally, the black arrow represents a transition from one state to another.}\label{fig:flowchart}%
+	\end{jdffigure}
 
-\subsection{Title \& subtitle}
-The paper title should be set in the regular weight at 17 points with 22 points of line spacing, centered at the top of the first page. The title may span up to three lines. For typical assignments, the document title may be as simple as "Assignment 1" More specialized assignments may warrant more unique paper names, like "A Proposal to Create a New Document Format."
+###
+\begin{itemize}
+	\item \includegraphics[scale=0.7]{Figures/gollum.png} Gollum
+	\item \includegraphics[scale=0.7]{Figures/frodo.png} Frodo
+	\item \includegraphics[scale=0.7]{Figures/sam.png} Sam
+	\item \includegraphics[scale=0.7]{Figures/ring.png} Ring
+\end{itemize}
 
-The author’s name and email should come next unless you want to or were asked to submit anonymously, in which case this can be omitted. They should be set in the same size and weight as body text, centered. These styles can be applied using the \emph{Title} and \emph{Subtitle} paragraph styles.
+\subsection{Additional constraints}
+Transition and rules governing the relationships are not immediately obvious  semantic network representing two states with a transition between them.
+
+To start, transitions rely on a boat which alternates between left and right banks. Sam \includegraphics[scale=0.7]{Figures/sam.png} must take up one place in the boat for each transition because he's the only person capable of maneuvering the boat. Procedurally, all transactions that undo the previous transaction, are invalid. And finally, all transactions which result back to the initial state are invalid as they indicate an inefficiency.
+
+Frodo \includegraphics[scale=0.7]{Figures/frodo.png} and Gollum \includegraphics[scale=0.7]{Figures/gollum.png}Frodo is also the only person capable of watching the ring alone. The anti-relationships that govern the procedures of this problem govern that neither Gollum or Frodo can be alone with the ring at any time. 
+
+
 
 \subsection{Abstract}
 If your paper requires an abstract, it should be placed at the top of the first page underneath the title block, preceded by the word \emph{Abstract} in bold italic. An extra 0.5" should be added to both sides. Not all papers require abstracts; only those that would benefit from a high-level summary of the project or its background.
