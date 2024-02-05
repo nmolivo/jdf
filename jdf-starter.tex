@@ -15,10 +15,10 @@
 \maketitle
 
 \begin{Abstract}
-	This paper covers one attempt to abstract the Lord of the Rings characters crossing a river with The Ring problem as a Semantic Network. Further discussion around its completeness, and efficiency will follow.
+	This paper covers one attempt to abstract the Lord of The Rings characters crossing a river with The Ring problem as a Semantic Network. Further discussion around its completeness, and efficiency will follow.
 \end{abstract}
 
-\section{The Lord of the Rings Problem}
+\section{The Lord of The Rings Problem}
 Four entities must cross a river, under a number of constraints. 
 
 % For example in Figure \ref{fig:Palatino} on page \pageref{fig:Palatino}...
@@ -40,41 +40,34 @@ The semantic network in question must Lexically capture objects, relationships, 
 \end{itemize}
 
 \subsection{Additional constraints}
-Transition and rules governing the relationships are not immediately obvious  semantic network representing two states with a transition between them.
+Transition and rules governing the relationships are not immediately obvious in a semantic network representing two states with a transition between them.
 
-To start, transitions rely on a boat which alternates between left and right banks. Sam \includegraphics[scale=0.7]{Figures/sam.png} must take up one place in the boat for each transition because he's the only person capable of maneuvering the boat. Procedurally, all transactions that undo the previous transaction, are invalid. And finally, all transactions which result back to the initial state are invalid as they indicate an inefficiency.
+Transitions can be described as reliant on a two-person boat which alternates between left and right banks. Sam \includegraphics[scale=0.7]{Figures/sam.png} must take up one place in the boat for each transition because he's the only person capable of maneuvering the boat. Procedurally, all transactions that undo the previous transaction, are invalid. And finally, all transactions which result back to the initial state are invalid as they indicate an inefficiency.
 
-Frodo \includegraphics[scale=0.7]{Figures/frodo.png} and Gollum \includegraphics[scale=0.7]{Figures/gollum.png}Frodo is also the only person capable of watching the ring alone. The anti-relationships that govern the procedures of this problem govern that neither Gollum or Frodo can be alone with the ring at any time. 
+Frodo \includegraphics[scale=0.7]{Figures/frodo.png} and Gollum  \includegraphics[scale=0.7]{Figures/gollum.png} cannot be in a boat with The Ring, or on the same side of the river as The Ring  \includegraphics[scale=0.7]{Figures/ring.png} without Sam  \includegraphics[scale=0.7]{Figures/sam.png} there. Neither Gollum or Frodo can be alone with The Ring at any time. 
 
+\section{Generate and Test}
+One approach to solve this puzzle is to use the Generate and Test method. This consists of proposing all possible moves, and then testing that each of them are valid. 
 
+\subsection{Smart Generator}
+For our LOTR example we're going to use a smart generator that presents all valid transitions. It will understand valid transitions as:
+\begin{itemize}
+\item Only preserving moves of items that exist on the side of the bank the boat is currently on. 
+\item Only generating moves where Sam \includegraphics[scale=0.7]{Figures/sam.png} is always on the boat, since he's the only person who can drive it. 
+\item Finally, our generator will not generate a move that undoes the prior move.
+\end{itemize}
 
-\subsection{Abstract}
-If your paper requires an abstract, it should be placed at the top of the first page underneath the title block, preceded by the word \emph{Abstract} in bold italic. An extra 0.5" should be added to both sides. Not all papers require abstracts; only those that would benefit from a high-level summary of the project or its background.
+\subsection{Tester}
+Our smart tester will then validate that The Ring \includegraphics[scale=0.7]{Figures/ring.png} is not alone with either or both Gollum \includegraphics[scale=0.7]{Figures/gollum.png} and Frodo \includegraphics[scale=0.7]{Figures/frodo.png} at any time.
 
-\subsection{Headings}
-Headings should all be set in the same size as body text (11 pt) in bold. With the exception of \emph{Heading 1}, they should all have 8.5 pt of space before and after. They should be hierarchically numbered: Word, Pages, and \LaTeX\ will do this automatically when you use the appropriate paragraph styles, but Google Docs users will need to number their headings manually. Headings should not span more than one line.
+\section{Full Semantic Network}
+Given the Generate and Test methods described above, the full semantic network will look like this: 
 
-\subsubsection{Heading 1}
-\emph{Heading 1} should be set in all caps. It should have 11 points of space added before and 8.5 points of space added after
-
-\subsubsection{Headings 2\,–\,4}
-Besides \emph{Heading 1}, which is set in caps, headings should always use sentence case (i.e., first word capitalized) rather than title case; after all, they are not titles. \emph{Heading 2} should be set in bold roman (upright), and \emph{Heading 3} should be set in bold italics. The use of headings beyond \emph{Heading 3} is discouraged.
-
-\subsubsubsection{Heading 4}
-\emph{Heading 4} is provided as a run-in sidehead. Like \emph{Heading 3}, it is set in bold italics, but it should be followed by an em dash and flow right into the text, as seen at the beginning of the current paragraph. It should be used more as a list style than a heading style, e.g. to set off a list of principles in a heuristic evaluation.
-
-\subsection{Page layout}
-JDF uses the US Letter paper size (8.5" x 11"). It has a top margin of 1", and bottom and side margins of 1.5". This yields a text block of 5.5" x 8.5", which is exactly \(\frac{1}{2}\) the size of the page, divided lengthwise.
-
-The page number should be included in the bottom margin, 1" from the bottom of the page. No other elements should be placed in the margins.
-
-\section{Presentational elements}
-You are encouraged to use presentational elements liberally, as long as they add to the clarity of your submissions. They often require less space and fewer accompanying words to explain a given concept, and do a far better job of it.
-
-\subsection{Figures}
-Figures should always be centered on the page, although they may also take up the entire width and height of the text block. Figures should always be referenced in the text, and they should include a descriptive caption. Figures may also be equations, diagrams, or other kinds of content.
-
-If your figure includes a white background (e.g. an interface design or graph), it may aid legibility to add a \(\frac{1}{4}\)-point black border.
+Tester behavior key:
+\begin{itemize}
+	\item \includegraphics[scale=0.7]{Figures/valid.png} Valid
+	\item \includegraphics[scale=0.7]{Figures/invalid.png} Invalid
+\end{itemize}
 
 \begin{jdffigure}
 \includegraphics[height=6cm]{Figures/flowchart.png}%
